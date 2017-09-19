@@ -1,0 +1,1165 @@
+/*清除默认样式*/
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.clearfix{
+	clear: both;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+body{
+	background: #f3f5f7;
+}
+/*header头部部分样式*/
+header{
+	/*position: relative;*/
+	width: 100%;
+	background-color: #000;
+}
+.wrapper{
+	width: 1600px;
+	margin: 0 auto;
+	height: 50px;
+}
+.wrapper-logo .logo{
+	cursor: pointer;
+	float: left;
+	width: 242px;
+	height: 50px;
+	background-image: url('../img/icon/logo.png');
+}
+.wrapper-item{
+	float: left;
+	width: 589.44px;
+	height: 50px;
+}
+.wrapper-item .wrapper-list{
+	position: relative;
+	float: left;
+	text-align: center;
+	height: 49.33px;
+	line-height: 49.33px;
+	margin: 0 6px;
+}
+.wrapper-item .wrapper-list:nth-child(1) .wrapper-a{
+	color: #cf9;
+}
+.wrapper-list .header-item{
+	position: absolute;
+	top: 50px;
+	left: 0;
+	height: 0px;
+	z-index: 99;
+	overflow: hidden;
+	transition: height .6s ease;
+}
+.header-item .header-list{
+	width: 80px;
+	height: 36px;
+	background-color: #222;
+}
+.wrapper-list:hover .header-item{
+	height: auto;
+	transition: height .6s ease;
+}
+.header-list:hover{
+	background-color: #690;
+}
+.header-item .header-list .header-a{
+	display: block;
+    height: 36px;
+    line-height: 36px;
+    color: #ccc;
+    padding-left: 7px;
+    font-size: 14px;
+}
+.header-list:hover .header-a{
+	color: #eee;
+}
+.wrapper-item .wrapper-list .wrapper-a{
+	display: block;
+	height: 100%;
+	font-size: 14px;
+	color: #ccc;
+	padding: 0px 12px 0px 13px;
+}
+.wrapper-item .wrapper-list.bg{
+	background: url('../img/shop2.gif') no-repeat;
+}
+.wrapper-list:hover{
+	background-color: #222;
+}
+.wrapper-list:hover .wrapper-a{
+	color: #ccff99;
+}
+.wrapper-list .triangle{
+	display: inline-block;
+	border: 4px solid transparent;
+	border-top: 4px solid #909090;
+	margin-left: 4px;
+}
+.wrapper-list:hover .triangle{
+	border-top: none;
+	margin-bottom: 4px;
+	border-bottom: 4px solid #fff;
+}
+.login{
+	float: right;
+	text-align: center;
+	line-height: 50px;
+	width: 100px;
+	height: 50px;
+	margin-left: 15px;
+}
+.login a{
+	font-size: 12px;
+	color: #ccc;
+}
+.login .login1{
+	border-right: 1px solid #666;
+	padding-right: 15px;
+    margin-right: 11px;
+}
+.login a:hover{
+	color: #cf9;
+}
+.menus-item{
+	float: right;
+	width: 68px;
+} 
+.menus-item .menus-list{
+	margin: 0 6px;
+	width: 56px;
+	height: 50px;
+	text-align: center;
+	line-height: 50px;
+	position: relative;
+}
+.menus-list:hover{
+	background-color: #222;
+}
+.menus-list .menus-a{
+	margin-top: 17px;
+	display: inline-block;
+    color: #ccc;
+    font-size: 14px;
+    cursor: pointer;
+	width: 21px;
+    height: 33px;
+	background: url('../img/icon/app.png') no-repeat;
+}
+.menus-a .triangle{
+	border: 4px solid transparent;
+	border-top: 4px solid #909090;
+	margin: 6px -10px 0 0;
+}
+.menus-list:hover .triangle{
+	border-top: none;
+	margin-bottom: 4px;
+	border-bottom: 4px solid #fff;
+}
+.app-item{
+	height: 0;
+	overflow: hidden;
+	width: 100px;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	z-index: 99;
+	transition: height 0.6s ease;
+}
+.menus-list:hover .app-item{
+	height: auto;
+	transition: height 0.6s ease;
+}
+.menus-list:hover{
+	color: #cf9;
+}
+.app-item .app-list{
+	background-color: #222;
+}
+.app-item .app-list .app-a{
+	height: 36px;
+	display: block;
+    line-height: 36px;
+    color: #ccc;
+    padding-left: 9px;
+    font-size: 14px;
+}
+.app-item .app-list:hover .app-a{
+	color: #eee;
+}
+.app-item .app-list:hover{
+	background-color: #690;
+}
+.upload{
+	margin-right: 15px;
+	float: right;
+}
+.upload .upload-a{
+	display: block;
+    width: 25px;
+    height: 25px;
+    margin-top: 11px;
+	background: url('../img/icon/icon.png') no-repeat 0 -33px;
+}
+.vip{
+	margin-right: 20px;
+	float: right;
+}
+.vip .vip-a{
+	background: url('../img/icon/icon.png') no-repeat -33px -33px;
+    display: block;
+    width: 33px;
+    height: 25px;
+    margin-top: 13px;
+}
+.search{
+	position: relative; 
+	float: right;
+	line-height:50px;
+	margin-right: 30px;
+}
+.search .search-input{
+	width: 223px;
+	height: 18.67px;
+	color: #898989;
+	margin-top: 7px;
+	border-radius: 20px;
+	border: none;
+	padding: 7px 0 3px 10px;
+    background-color: #ccc;
+    outline: none;
+}
+.search #search-btn{
+	position: absolute;
+    z-index: 291;
+    top: 16px;
+    right: 13px;
+    width: 16px;
+    height: 17px;
+    text-indent: -999em;
+    cursor: pointer;
+    border: 0 none;
+    background: url('../img/icon/搜索 (1).png') no-repeat;
+}
+.search-item{
+	position: absolute;
+    top: 50px;
+    left: 0px;
+    z-index: 100;
+    width: 224px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    background: #000;
+    overflow: hidden;
+    display: none;
+}
+.search-item .search-list{
+	width: 183px;
+	cursor: pointer;
+	height: 30px;
+	color: #ccc;
+    padding: 0 20px;
+	line-height: 26px;
+	overflow: hidden;
+}
+.search-input:focus{
+	background-color: #fff;
+}
+/*.search:focus .search .search-item{
+	display: block;
+}*/
+.search-item .search-list:hover{
+	background-color: #333;
+	color: #fff;
+}
+
+
+/*article 部分*/
+article{
+	width: 1600px;
+	margin: 0 auto;
+}
+
+/*banner轮播图部分*/
+.section-banner{
+	position: relative;
+	width: 100%;
+	height: 480px;
+}
+.section-banner .ban-item{
+	width: 100%;
+}
+.ban-item .ban-list{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 480px;
+	z-index: 0;
+}
+.ban-item .ban-list.active{
+	z-index: 1;
+}
+.ban-item .ban-list .ban-a{
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.section-banner .ban-txt{
+	position: absolute;
+    top: 29px;
+    right: 60px;
+    background: url(../img/title_bg.png) no-repeat;
+    width: 258px;
+    height: 390px;
+    padding-top: 14px;
+    text-align: center;
+    z-index: 2;
+}
+.txt-list .txt-a{
+	display: inline-block;
+    color: #fff;
+    font-size: 14px;
+    width: 230px;
+    line-height: 34px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: right;
+}
+.txt-list .txt-a.action{
+	color: #52e2c0;
+}
+.login-div{
+	position: fixed;
+	left: 30%;
+	top: 86px;
+    width: 750px;
+    height: 380px;
+    z-index: 999;
+    background-color: #fff;
+    overflow: hidden;
+    display: none;
+}
+.login-div .login-img{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/123456.jpg');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+}
+.login-div .login-view{
+	position: absolute;
+    width: 280px;
+    right: 60px;
+    top: 0;
+    z-index: 2;
+    font-size: 12px;
+}
+.login-view .login-tab{
+	font-size: 20px;
+    color: #474c56;
+    line-height: 72px;
+    height: 72px;
+}
+.login-tab .login-a1{
+	height: 70px;
+    color: #27d5bf;
+    border-bottom: 2px solid #27d5bf;
+}
+.login-tab a{
+	float: left;
+    width: 50%;
+    text-align: center;
+    height: 71px;
+    color: #333;
+    border-bottom: 1px solid #e1e1e7;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.login-tab .login-a2:hover{
+	color: #27d5bf;
+}
+.login-form .form-line{
+	margin: 5px 0;
+    height: 20px;
+    line-height: 20px;
+    color: #ff6699;
+}
+.login-form .input1,
+.login-form .input2{
+	width: 258px;
+    margin-bottom: 15px;
+    padding: 10px;
+    line-height: 18px;
+    border: 1px solid #e1e1e7;
+    background-color: #fff;
+    border-radius: 3px;
+    box-sizing: content-box;
+}
+.login-form .fun{
+	margin-bottom: 15px;
+}
+.fun .label1{
+	float: left;
+    cursor: pointer;
+    color: #999;
+}
+.label .input3{
+	vertical-align: middle;
+    margin-right: 5px;
+    outline: none;
+}
+.label span{
+	vertical-align: middle;
+    position: relative;
+    top: -1px;
+    line-height: 14px;
+}
+.a100{
+	float: right;
+	color: #999;
+}
+.fun #input4{
+	cursor: pointer;
+    margin-bottom: 15px;
+    background-color: #27d5bf;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    width: 100%;
+    border-radius: 3px;
+    border: none;
+    overflow: visible;
+}
+#login-other .login-other1{
+	margin: 15px 0;
+}
+.login-other1 span{
+	float: left;
+    width: 25%;
+    text-align: center;
+    color: #999;
+}
+.login-other1 .span3{
+	line-height: 26px;
+}
+.login-other1 span a{
+	font-size: 0;
+    overflow: hidden;
+    display: inline-block;
+    cursor: pointer;
+    vertical-align: middle;
+     background-image: url(../img/ui.png);
+    background-repeat: no-repeat;
+}
+.login-other1 span .weibo{
+    background-position: 0 -159px;
+    height: 24px;
+    width: 29px;
+}
+.login-other1 span .weixin{
+    background-position: 0 -226px;
+    height: 23px;
+    width: 28px;
+}
+.login-other1 span .qq{
+	background-position: 0 -52px;
+    height: 23px;
+    width: 22px;
+}
+.close{
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    width: 20px;
+    height: 18px;
+    font-size: 4px;
+    color: #666;
+  /*  background-position: 0 -620px;*/
+    display: block;
+    /*overflow: hidden;*/
+    /*text-indent: -9999em;*/
+    /*background: url(../img/ico20_1113.png) no-repeat;*/
+    z-index: 10;
+}
+.close:hover{
+	color: #f00;
+}
+/*过度部分*/
+.section-banner-bottom{
+	width: 100%;
+	height: 10px;
+	background-color: #fff;
+}
+/*首播部分*/
+.section-info{
+	width: 1600px;
+	height: 493px;
+	background-color: #fff;
+	margin: 0 auto;
+}
+.section-info .info-center{
+	position: relative;
+	width: 1470px;
+	height: 489px;
+	margin: 0 auto;
+}
+.info-title{
+	padding: 34px 0 16px;
+    overflow: hidden;
+}
+.info-title h3{
+	font-size: 20px;
+    color: #000;
+    float: left;
+    line-height: 20px;
+    font-weight: bold;
+}
+.info-title .info-item{
+	float: right;
+	height: 24px;
+}
+.info-item .info-list{
+	float: left;
+	background: url(../img/dash_border.png) 0 no-repeat;
+	padding: 0 19px;
+}
+.info-item .info-list:nth-child(1){
+	background: none;
+}
+.info-item .info-list:last-child{
+	padding-right: 0;
+}
+.info-list .info-a{
+    color: #666;
+    font-size: 14px;
+    padding-bottom: 16px;
+    line-height: 20px;
+}
+.info-list .info-a:hover{
+	color: #52e2c0;
+}
+.info-list .info-a.active1{
+	color: #52e2c0;
+    border-bottom: 2px solid #52e2c0;
+}
+.title-line{
+	height: 2px;
+	background: #f4f4f4;
+    margin-top: -2px;
+}
+.info-center .arrow-pre,
+.info-center .arrow-next{
+    background: url(../img/arrow2.png) no-repeat;
+    width: 26px;
+    height: 115px;
+    font-size: 0;
+    position: absolute;
+    top: 190px;
+    display: none;
+}
+.info-center .arrow-pre{
+	left: -43px;
+    background-position: -52px 0;
+    /*display: none;*/
+}
+.info-center .arrow-next{
+	right: -43px;
+    background-position: -78px 0;
+}
+.info-center .arrow-pre:hover{
+	background-position: 1px 0;
+}
+.info-center .arrow-next:hover{
+	background-position: -23px 0;
+}
+.info-center .info-content{
+	padding-top: 17px;
+	height: 398px;
+	overflow: hidden;
+	position: relative;
+}
+.info-content .content1{
+	width: 4500px;
+}
+.content1 .mv-box{
+	position: relative;
+	overflow: hidden;
+	width: 470px;
+	height: 378px;
+	margin-left: 0px;
+}
+.content1 li{
+	float: left;
+	width: 220px;
+	height: 398px;
+	margin-left: 30px;
+}
+.mv-box .arrow1-pre,
+.mv-box .arrow1-next{
+	background: url(../img/arrow.png);
+    width: 13px;
+    height: 25px;
+    position: absolute;
+    top: 150px;
+    cursor: pointer; 
+}
+.mv-box .arrow1-pre{
+	left: 10px;
+}
+.mv-box .arrow1-next{
+	right: 10px;
+    background-position: -13px 0;
+}
+.mv-box .arrow1-pre:hover{
+	background-position: 0px -24px;
+}
+.mv-box .arrow1-next:hover{
+	background-position: -13px -24px;
+}
+.mv-box .box-item{
+	position: relative;
+	width: 942px;
+}
+.box-item .box-list{
+	width: 470px;
+	float: left;
+	height: 378px;
+	margin-left: 0px;
+}
+.box-list .box-a{
+	display: block;
+}
+.box-list .box-a img{
+	width: 470px;
+	height: 323px;
+}
+.box-list .box-a h5{
+	font-size: 16px;
+    line-height: 16px;
+    margin: 12px 12px 12px;
+    width: 445px;
+    overflow: hidden;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.box-list .box-a p{
+	font-size: 14px;
+    line-height: 14px;
+    margin: 0 12px;
+    width: 445px;
+    color: #a4a4a4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.mv-box:hover h5,
+.mv-box:hover p{
+	color: #52e2c0;
+}
+.content1-mv div{
+	height: 178px;
+}
+.content1-div:last-child{
+	margin-top: 20px;
+}
+.content1-div .div1-a{
+	display: block;
+}
+.content1-div .div1-a img{
+	display: block;
+	width: 220px;
+	height: 124px;
+}
+.content1-div .div1-a .h52{
+	font-size: 14px;
+    line-height: 16px;
+    margin: 12px 12px 10px;
+    width: 196px;
+    overflow: hidden;
+    color: #333;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content1-div .div1-a .p2{
+	font-size: 12px;
+    line-height: 16px;
+    margin: 0 12px 21px;
+    color: #a4a4a4;
+    width: 196px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.content1-div:hover .h52,
+.content1-div:hover .p2{
+	color: #52e2c0;
+}
+.section-info{
+	border-bottom: 4px solid #f3f5f7;
+}
+
+/*娱乐部分*/
+.box-a .h5color{
+	color: #333;
+}
+.box-a .pcolor{
+	color: #a4a4a4;
+}
+
+/*热播推荐第三部分*/
+.info-title #change{
+	color: #a4a4a4;
+    font-size: 14px;
+    float: right;
+    background: url(../img/change.png) 3px 3px no-repeat;
+    padding-left: 23px;
+}
+.info-title #change:hover{
+	background: none;
+}
+article .section-info.gaodu{
+	height: 293px;
+	border-bottom: 4px solid #f3f5f7;
+}
+.section-info .info-center.gd2{
+	height: 293px;
+}
+.section-info .info-content.gd1{
+	height: 199px;
+	padding-top: 0px;
+}
+.content1 .content1-mv:nth-child(1){
+	margin-left: 0px;
+}
+/*.f3li{
+	display: none;
+}*/
+/*现场部分*/
+.info-content .box-a .gifimg{
+	width: 467px;
+	height: 323px;
+}
+
+/*主打星：潘玮柏部分*/
+.info-title #change.ck{
+	background: none;
+}
+
+/*section6音悦V榜部分*/
+.section6{
+	width: 1600px;
+	background-color: #fff;
+	border-bottom: 4px solid #f3f5f7;
+}
+.section6 .st6{
+	width: 1470px;
+	margin: 0 auto;
+}
+.st6 .st6-title{
+	padding: 34px 0 16px;
+    overflow: hidden;
+}
+.st6-title .h36{
+	font-size: 20px;
+    color: #000;
+    float: left;
+    line-height: 20px;
+    font-weight: bold;
+}
+.st6-title .h36 a{
+	 color: #000;
+}
+.st6-title .st6-div{
+	float: left;
+    margin-left: 15px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.st6-title .st6-div .st6-a{
+	color: #666;
+    font-size: 14px;
+    padding: 0 13px;
+    line-height: 14px;
+    float: left;
+    border-left: 1px solid #e5e5e5;
+}
+.st6-title .st6-div .st6-a:hover{
+	color: #52e2c0;
+}
+.st6-line{
+	height: 2px;
+    background: #f4f4f4;
+    margin-top: -2px;
+}
+.st6 .st6-content{
+	padding-top: 17px;
+    height: 398px;
+    overflow: hidden;
+    position: relative;
+}
+.st6-content .st6-item{
+	height: 378px;
+    overflow: hidden;
+}
+.st6-item .st6-list{
+	float: left;
+    margin-left: 30px;
+    width: 220px;
+}
+.st6-item .st6-list.st6-img{
+	margin-left: 0;
+    width: 470px;
+}
+.st6-item .st6-img .img6-a{
+	display: block;
+}
+.st6-item .st6-img h5{
+	font-size: 16px;
+    line-height: 16px;
+    margin: 12px 12px 12px;
+    width: 445px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.st6-item .st6-img p{
+	font-size: 14px;
+    line-height: 14px;
+    margin: 0 12px;
+    width: 445px;
+    color: #a4a4a4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.st6-list .databox h4{
+	font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+}
+.st6-list .databox span{
+	color: #a4a4a4;
+    display: block;
+    margin-bottom: 15px;
+}
+.st6-list .item-st6{
+	border-top: 1px solid #f4f4f4;
+    cursor: pointer;
+    height: 73px;
+}
+.st6-list .item-st6 a{
+	display: block;
+}
+.item-st6 a h5{
+	width: 196px;
+	height: 48px;
+	font-size: 14px;
+    line-height: 25px;
+    margin: 12px 12px 8px;
+    text-overflow: inherit;
+    white-space: inherit;
+    color: #333;
+    font-weight: normal;
+}
+.item-st6 a img{
+	width: 220px;
+	height: 122px;
+    display: none;
+}
+/*.st6-list .item-st6.st6-active{
+	border-top: none;
+	height: 192px;
+}*/
+
+
+/*自制节目部分*/
+.zizhi{
+	float: right;
+	color: #a4a4a4;
+	font-size: 14px;
+}
+.zizhi:hover{
+	color: #52e2c0;
+}
+.st6-list:hover .img6-a h5{
+	color: #52e2c0;
+}
+.st6-list:hover .img6-a h5{
+	color: #52e2c0;
+}
+
+
+/*精品悦单部分*/
+.section8{
+	width: 1600px;
+	background-color: #fff;
+	border-bottom: 4px solid #f3f5f7;
+}
+.section8 .st8{
+	width: 1470px;
+	margin: 0 auto;
+}
+.st8 .st8-title{
+	padding: 34px 0 16px;
+    overflow: hidden;
+}
+.st8-title .h38{
+	font-size: 20px;
+    color: #000;
+    float: left;
+    line-height: 20px;
+    font-weight: bold;
+}
+.st8-title .h38 a{
+	 color: #000;
+}
+.st8-title .st8-a{
+	color: #666;
+    font-size: 14px;
+    padding: 0 13px;
+    line-height: 14px;
+}
+.st8-title .st8-a:hover{
+	color: #52e2c0;
+}
+.st8-line{
+	height: 2px;
+    background: #f4f4f4;
+    margin-top: -2px;
+}
+.st8 .st8-div{
+	padding-top: 17px;
+    overflow: hidden;
+    position: relative;
+    height: 294px;
+}
+.st8-div .st8-item{
+	height: 270px;
+    overflow: hidden;
+}
+.st8-item .st8-list{
+	position: relative;
+    cursor: pointer;
+    float: left;
+    margin-left: 30px;
+    width: 220px;
+}
+.st8-item .st8-list:nth-child(1){
+	 margin-left: 0px;
+}
+.st8-item .st8-list .st8-home{
+
+}
+.st8-list .st8-home img{
+	width: 220px;
+    height: 220px;
+}
+.st8-list .st8-home h5{
+	font-size: 14px;
+    line-height: 16px;
+    margin: 11px 12px 8px;
+    width: 196px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.st8-list .st8-home p{
+	font-size: 12px;
+    line-height: 16px;
+    margin: 0 12px;
+    color: #a4a4a4;
+    width: 196px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.st8-list .st8-hover{
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 470px;
+    height: 270px;
+    background: #f3f5f7;
+    z-index: 1;
+    overflow: hidden;
+    display: none;
+}
+.st8-hover .hover-a{
+	display: block;
+}
+.st8-hover .hover-div1{
+	float: left;
+    width: 270px;
+    height: 270px;
+}
+
+.hover-div1 img{
+	float: left;
+    width: 100%;
+    height: 100%;
+}
+.hover-div1 span{
+	position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../img/play_icon.png) no-repeat;
+    background-size: 100%;
+    width: 270px;
+    height: 270px;
+}
+.st8-hover .hover-div2{
+	padding: 0 21px;
+    width: 155px;
+    float: right;
+    border: 1px solid #e5e5e5;
+    border-left: 0;
+    height: 268px;
+}
+.hover-div2 .div2-top{
+	height: 145px;
+    overflow: hidden;
+}
+.hover-div2 .div2-top h4{
+	font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0;
+}
+.hover-div2 .div2-top span{
+	font-size: 12px;
+    color: #a4a4a4;
+    line-height: 23px;
+    margin-top: -6px;
+    display: block;
+}
+.hover-div2 .div2-middle{
+	overflow: hidden;
+    margin-top: 7px;
+}
+.hover-div2 .div2-middle img{
+	float: left;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.hover-div2 .div2-middle span{
+	font-size: 14px;
+    margin-left: 50px;
+    line-height: 40px;
+    display: block;
+}
+.hover-div2 .div2-bottom{
+	font-size: 12px;
+    color: #a4a4a4;
+    margin-left: 50px;
+    display: block;
+}
+.hover-div2 .div2-bottom i{
+	background: url(../img/playcount.png) no-repeat;
+    display: inline-block;
+    width: 13px;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    font-style: normal;
+    font-weight: normal;
+}
+.hover-div2 span{
+	font-size: 12px;
+    color: #a4a4a4;
+    margin-left: 50px;
+    display: block;
+}
+.st8-list:hover .st8-hover{
+	display: block;
+	width: 470px;
+}
+.st8-list:last-child:hover .st8-hover
+{
+	display: block;
+	left: -250px;
+}
+/*猜你喜欢部分*/
+.p100{
+	float: left;
+    font-size: 14px;
+    color: #666;
+}
+#change:hover{
+	color: #52e2c0;
+	background: none;
+}
+
+/*footer部分*/
+footer{
+	width: 100%;
+	line-height: 22px;
+    text-align: center;
+    height: 150px;
+    background-color: #fff;
+}
+footer .foot-p1{
+	height: 21px;
+    padding: 35px 0 20px;
+}
+.foot-p1 .foot-a{
+	font-size: 14px;
+    color: #666;
+    padding: 0px 10px 0;
+}
+.foot-p2, 
+.foot-p2 a{
+	color: #999;
+}
+.foot-p2 .foot-img1 img{
+	width: 25px;
+	height: 25px;
+	vertical-align: middle;
+}
+.foot-p2 .foot-img2 img{
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+.foot-p2 .foot-img3 img{
+	width: 40px;
+	height: 48px;
+	vertical-align: top;
+    margin-top: -25px;
+}
+.foot-p2 a:hover{
+	color: #690;
+}
+.returntop{
+	display: inline-block;
+	width: 50px;
+	height: 65px;
+	position: fixed;
+	bottom: 100px;
+	right: 0;
+	background: url('../img/returntop.png') no-repeat;
+}

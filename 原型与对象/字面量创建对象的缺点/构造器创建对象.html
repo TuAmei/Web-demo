@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>通过构造器创建对象</title>
+</head>
+<body>
+	
+	<!-- 函数也是对象，函数拥有属性及方法
+	可存在于一个变量，数组或者对象中
+	可以作为参数传递给函数并由函数返回 -->
+	<script type="text/javascript">
+	//对象的构造器 --------- ES6  Java 类 类实例化对象
+		// function Person (name) {
+		// 	this.name = name;
+		// 	this.eat = function(){
+		// 		console.log('这个方法什么都不做，只是打印这些字');
+		// 	};
+		// 	this.say = function (){
+		// 		console.log('my name is ' + this.name);
+		// 	}
+		// };
+
+		// var walker = new Person('walker');
+		// walker.eat();
+		// walker.say();
+
+		// var xiaoming = new Person('xiaoming');
+		// xiaoming.eat();
+		// xiaoming.say();
+
+		//定义一个手机类（对象）
+		function  Phone (paizi,yanse,jiage,chicun) {
+			this.paizi = paizi;//由外部传进来的参数
+			this.yanse = yanse;
+			this.jiage = jiage;
+			this.chicun = chicun;
+
+			//因为所有的手机都可以打电话，所以将打电话这个方法放到外面去
+			// this.call = function(){
+			// 	alert('喂喂喂，你在干啥呢');
+			// };
+			this.play = function(){
+				alert('敌军还有三十秒抵达战场');
+			}
+		};
+
+		var arr = [0,1];
+		Array.prototype.slice = function(){
+			alert('你的原型数组分割数组方法已被修改，现在slice方法不能分割数组');
+		};
+		arr.slice(0,1);
+		//将打电话这个方法添加到 prototype原型类上面
+		Phone.prototype.call = function(){
+			alert('喂喂喂，你在干啥呢');
+		};
+		// 通过new关键字创建一个实例化对象的变量iphone
+		var iphone = new Phone('苹果','黑色','4899','5.0');
+		iphone.call();
+		iphone.play();
+
+
+	</script>
+</body>
+</html>

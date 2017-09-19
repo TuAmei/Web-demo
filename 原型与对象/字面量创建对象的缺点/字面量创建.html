@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>字面量创建对象的缺点</title>
+</head>
+<body>
+	<!-- 总结字面量创建对象的缺点：
+	没有逻辑，没有语意化 -->
+	<script type="text/javascript">
+		// 将对象封装成一个函数
+		function genertaPerson(){
+			var Person = {//通过字面量创建对象
+				fristName: 'lee',
+				lastName: 'walker',
+				gender: 'man',
+				getName: function(){
+
+				}
+			}
+		};
+		//获取对象名字方法
+		function getName (person){
+			console.log(person.name);
+		}
+		// 判断性别
+		function isMan (person){
+			if (person.gender === 'man') {
+				console.log(person.lastName + ' is man');
+			}else{
+				console.log(person.lastName + ' is girl');
+			}
+		}
+
+		var walker = genertaPerson();//定义一个变量walker接受对象
+		walker.gender = 'six';//修改对象里的元素
+		isMan(walker);
+		var xiaoming = genertaPerson();//定义一个变量xiaoming接受对象
+		isMan(xiaoming);//原来对象里面的内容，默认值，没有受到walker修改的影响
+	</script>
+</body>
+</html>

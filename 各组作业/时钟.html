@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去年买了个表</title>
+	<style>
+	*{
+		margin: 0;
+		padding:0;
+	}
+	ul li{
+		list-style: none;
+	}
+	body{
+		background-color: #b0b0b0;
+	}
+    .box{
+    	position: relative;
+		width: 300px;
+		margin:200px auto;
+		height: 300px;
+		border:5px solid #fff;
+		border-radius: 50%;
+		background-color: #e0e0e0;
+	}
+	.point{
+		position: absolute;
+		top: 145px;
+		left: 145px;
+		height: 10px;
+		width: 10px;
+		border-radius: 50%;
+		z-index: 5;
+		background-color: black;
+	}
+	 .hour {
+            position: absolute;
+            top: 147px;
+            left: 147px;
+            width: 6px;
+            height: 110px;
+            border-radius: 4px;
+            background-color: blue;
+            /*transform-origin: 50% 0%;*/
+            transform-origin: top;
+        }
+        /*分针*/
+        .min {
+            position: absolute;
+            top: 148px;
+            left: 148px;
+            width: 4px;
+            height: 120px;
+            border-radius: 4px;
+            background-color: forestgreen;
+            /*transform-origin: 50% 0%;*/
+            transform-origin: top;
+        }
+        /*秒针*/
+        .sec {
+            position: absolute;
+            top: 149px;
+            left: 149px;
+            width: 2px;
+            height: 130px;
+            border-radius: 4px;
+            background-color: chocolate;
+            /*transform-origin: 50% 0%;*/
+            transform-origin: top;
+        }
+            /*钟表刻度*/
+        ul li {
+            position: absolute;
+            top: 150px;
+            left: 150px;
+            width: 2px;
+            height: 144px;
+            border-bottom: 6px solid black;
+            transform-origin: 50% 0%;
+        }
+        /*钟表小时刻度，就是长一点的那个刻度*/
+        ul li.lang {
+            height: 138px;
+            border-bottom: 12px solid black;
+        }
+	</style>
+</head>
+<body>	
+		<div class="box">
+		    <div class="point"></div>
+			<div class="hour"></div>
+			<div class="min"></div>
+			<div class="sec"></div>
+			<ul>
+							
+			</ul>
+		</div>
+
+		<script>
+			var ulDom =document.getElementsByTagName('ul')[0];
+			 var hourDom=document.getElementsByClassName("hour")[0];
+             var minDom=document.getElementsByClassName("min")[0];
+             var secDom=document.getElementsByClassName("sec")[0];
+			console.log(ulDom);
+
+			var liDoms="";
+
+            for (var i=0;i<60;i++){
+             liDoms += "<li></li>";
+           }
+             ulDom.innerHTML=liDoms;
+             var liDoms=document.getElementsByTagName("li");
+             for(var i=0;i<60;i++){
+              if(i%5==0){
+                    liDoms[i].className="lang";
+             }
+              liDoms[i].style.transform="rotateZ("+i*6+"deg)";
+    }
+    var timer = null;
+    function run(){
+        clearTimeout(timer);
+        timer = null;
+
+        var nowDate = new Date;
+
+        var s = nowDate.getSeconds();
+        secDom.style.transform="rotateZ("+(s*6+180)+"deg)";
+
+        var m = nowDate.getMinutes()+s/60;
+        minDom.style.transform="rotateZ("+(m*6+180)+"deg)";
+
+        var h = nowDate.getHours()+m/60;
+        hourDom.style.transform="rotateZ("+(h*30+180)+"deg)";
+
+        var timer=window.setTimeout(run,1000);
+    }
+    run();
+		</script>
+</body>
+</html>

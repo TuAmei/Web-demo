@@ -1,0 +1,38 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+li{
+	list-style: none;
+}
+body{
+	background-color: #333;
+}
+.big{
+	background-color: #999;
+	width: 320px;
+	margin: 20px auto;
+}
+.item{
+	width: 320px;
+}
+.list{
+	width: 100%;
+	height: 50px;
+	overflow: hidden;
+	position: relative;
+	background-color: #aaa;
+	border: 1px solid #333;
+}
+.list .div{
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 50px;
+	width: 0;
+	background-color: #f00;
+	/*transition: all 0.5s ease;*/
+}
+/*.list:hover .div{
+	width: 100%;
+}*/

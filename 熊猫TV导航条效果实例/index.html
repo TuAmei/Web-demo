@@ -1,0 +1,149 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>熊猫TV导航条效果</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		li{
+			list-style: none;
+		}
+		#box{
+			cursor: pointer;
+			width: 960px;
+			margin: 0 auto;
+			background-color: #eee;
+		}
+		.unit{
+			position: relative;
+			width: 400px;
+			margin: 0 auto;
+		}
+		.list{
+			/*position: absolute;*/
+			/*position: relative;*/
+			float: left;
+			width: 80px;
+			height: 40px;
+			text-align: center;
+			background-color: #f00;
+			font-size: 24px;
+			font-weight: bold;
+			color: #000;
+
+		}
+		/*.list:last-child{
+			padding-right: 0px;
+		}*/
+		.slider{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 80px;
+			height: 40px;
+			background-color: #0f0;
+			transition: all 1s ease;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<ul class="unit">
+			<li class="list">11</li>
+			<li class="list">22</li>
+			<li class="list">33</li>
+			<li class="list">44</li>
+			<div class="slider"></div>
+		</ul>
+	</div>
+	<script type="text/javascript">
+
+		var unitDom = document.getElementsByClassName('unit')[0];
+		var listDom = document.getElementsByClassName('list');
+		var listDoms = Array.prototype.slice.call(listDom);
+		var sliderDom = document.getElementsByClassName('slider')[0];
+		
+		listDoms.forEach(function(e,i){
+			e.addEventListener('mouseover',function(ev){
+				sliderDom.style.backgroundColor = '#00b388';
+				sliderDom.style.left = i*80+'px';
+			},false);
+		});
+	</script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		#list{
+			position: relative;
+			width: 400px;
+			height: 50px;
+			margin: 0 auto;
+		}
+		#list li{
+			float: left;
+			width: 100px;
+			height: 50px;
+			text-align: center;
+			line-height: 50px;
+			font-size: 36px;
+		}
+		#list li.active{
+			color: #fff;
+		}
+		#list-slider{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100px;
+			height: 50px;
+			background-color: #00b388;
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li>11</li>
+		<li>22</li>
+		<li>33</li>
+		<li>44</li>
+		<div id="list-slider"></div>
+	</ul>
+
+	<script>
+		var listSliderDom = document.getElementById('list-slider');
+		var listDom = document.getElementById('list');
+		var liDoms = document.getElementsByTagName('li');
+		var lisDom = Array.prototype.slice.call(liDoms);
+		lisDom.forEach((e,i)=>{
+			e.addEventListener('mouseover', function (ev) {
+				//	获取当前点击的元素距离左边(父盒子)的位置
+				//	左边 offsetLeft   上边 offsetTop
+				var sliderLeft = this.offsetLeft;
+				console.log(this.offsetLeft);
+				listSliderDom.style.transition = 'all .6s ease';
+				listSliderDom.style.left = sliderLeft + 'px';
+				// this.className += ' active';
+			}, false);
+		});
+	</script>
+</body>
+</html>

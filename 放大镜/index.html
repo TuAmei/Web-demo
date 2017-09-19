@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	
+</head>
+<body>
+<!-- 本特效的思路： 其实放大的是隐藏的背景图片,当鼠标移入原装图片时,触发隐藏的背景图片,隐藏的背景图片是放大了相对倍数的原装图片,当移动时,把隐藏的背景图片定位到相应的位置显示,就可以了-->
+	<div id="imgbox"><!-- 定义一个盒子装原装图片 -->
+		<div id="fd"><!-- 在定义一个盒子，用于放大图片 -->
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+	var imgboxDom = document.getElementById('imgbox');//获取原装图片的盒子Id
+	var fdDom = document.getElementById('fd');//获取放大图片盒子id
+
+	imgboxDom.addEventListener('mouseenter',function(ev){
+		fdDom.style.display = 'block';//给原装盒子一个监听事件，当鼠标移入时触发，放大盒子显示出来
+	},false);
+
+	imgboxDom.addEventListener('mousemove',function(ev){
+		console.log(12);//clientX鼠标点击的位置（也就是鼠标的位置）距离浏览器窗口的X坐标值
+		//clientY鼠标点击的位置（也就是鼠标的位置）距离浏览器窗口的Y坐标值
+		//offsetLeft鼠标点击的位置（也就是鼠标的位置）距离鼠标点击的那个标签的left值
+		//offsetTop鼠标点击的位置（也就是鼠标的位置）距离鼠标点击的那个标签的top值
+		var left = ev.clientX - this.offsetLeft;//放大盒子在X轴移动的距离
+		var top = ev.clientY - this.offsetTop;//放大盒子在Y轴移动的距离
+		fdDom.style.left =(left-100)+ 'px';
+		fdDom.style.top = (top-100)+ 'px';
+
+		fdDom.style.backgroundPositionX = -2*left+100 + 'px';
+		fdDom.style.backgroundPositionY = -2*top-100 + 'px';
+	},false);
+
+	imgboxDom.addEventListener('mouseleave',function(ev){
+		fdDom.style.display = 'none';//给原装盒子一个监听事件，当鼠标移出时触发，放大盒子隐藏
+	},false);
+	</script>
+</body>
+</html>

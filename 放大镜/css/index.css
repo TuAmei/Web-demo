@@ -1,0 +1,27 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #CCC;
+}
+#imgbox{
+	position: relative;
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+	background-image: url('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3901182347,1674098778&fm=26&gp=0.jpg');
+	background-repeat: no-repeat;
+}
+#fd{
+	width: 200px;
+	height: 200px;
+	background-image: url('https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3901182347,1674098778&fm=26&gp=0.jpg');
+	background-size: 1000px 1000px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	background-repeat: no-repeat;
+	display: none;
+}

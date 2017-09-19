@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>运动实例</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			position: relative;
+			width: 100%;
+			height: 300px;
+			background-color: #eee;
+		}
+		#ball{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 30px;
+			height: 30px;
+			background-color: #000;
+			border-radius: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="ball"></div>
+	</div>
+	<script type="text/javascript">
+		var ballDom = document.getElementById('ball');
+		// //起始位置
+		// var start = 0;
+		// //末尾置
+		// var end = 200;
+		// // 运动速度
+		// var v_x = 5;
+		// var timer = setInterval(function(){
+		// 	if(start >= end){
+		// 		clearInterval(timer);
+		// 		ballDom.style.left = end+ 'px';
+		// 		return; 
+		// 	}
+		// 	ballDom.style.left = start + v_x + 'px';
+		// 	start += v_x;
+		// },30);
+
+
+		// var moveOption = {
+		// 	start: 0,
+		// 	end: 300,
+		// 	v_x: 10
+		// }
+		// //线性运动，匀速直线运动
+		// function lineMove (option) {
+		// 	var start = option.start;
+		// 	var end = option.end;
+		// 	var v_x = option.v_x;
+		// 	var timer = setInterval(function(){
+		// 		if(start >= end){
+		// 			clearInterval(timer);
+		// 			ballDom.style.left = end+ 'px';
+		// 			return; 
+		// 		}
+		// 		ballDom.style.left = start + v_x + 'px';
+		// 		start += v_x;
+		// 	},30);
+		// }
+		// lineMove(moveOption);
+
+		// 有加速度的运动
+		var moveOption1 = {
+			start: 0,
+			end: 300,
+			v_x: 10,
+			a: 9.8   //加速度
+		}
+
+		function jiasuMove (option,callback) {
+			var start = option.start;
+			var end = option.end;
+			var v_x = option.v_x;
+			var a = option.a;
+			var time = 0;
+			var timer = setInterval(function(){
+				v_x = v_x + a * time;
+				if(start >= end){
+					clearInterval(timer);
+					// ballDom.style.left = end+ 'px';//X轴方向上的速度
+					ballDom.style.top = end+ 'px';//Y轴方向上的速度
+					callback();//回调函数
+					return; 
+				}
+				// ballDom.style.left = start + v_x + 'px';//X轴方向上的速度
+				ballDom.style.top = start+v_x+'px';//Y轴方向上的速度
+				start += v_x;
+				time++;
+			},30);
+		}
+		
+
+
+		var moveOption = {
+			start: 0,
+			end: 300,
+			v_x: 10
+		}
+		//匀速直线运动，，，，不使用setInterval
+		function lineMove (option,callback) {
+			var start = option.start;
+			var end = option.end;
+			var v_x = option.v_x;
+			function move() {
+				if(start >= end){
+					ballDom.style.left = end+ 'px';
+					//回调函数，将前面业务代码执行完过后，再回来执行这个函数中间的代码
+					if(callback) callback();//判断是否存在回调函数，有就执行回调函数
+					console.log('111111111');
+					return; 
+				}
+				ballDom.style.left = start + v_x + 'px';
+				start += v_x;
+				console.log('2222222');
+				requestAnimationFrame(move);//添加动画，运动
+				// webkitRequestAnimationFrame(move);//兼容写法
+				// mozRequestAnimationFrame(move);//兼容写法
+				cancelAnimationFrame(move);//取消运动，取消动画
+			};
+			move();
+			console.log('333333333333');
+		};
+		lineMove (moveOption,function(){
+			alert('第一次运动完毕，点击进入第二次运动');
+			//可以利用回调函数，展示其他内容，这是一个异步的
+			jiasuMove(moveOption1,function(){
+				alert('第二次运动完毕，点击进入第三次运动');
+				lineMove({
+					start:300,
+					end: 800,
+					v_x: 5
+				});
+			});
+		});
+
+		console.log(window);
+	</script>
+</body>
+</html>

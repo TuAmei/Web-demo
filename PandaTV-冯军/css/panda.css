@@ -1,0 +1,319 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+li{
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+.clearfix{
+	clear: both;
+}
+.index-channel{
+	width:100%;
+	height:5000px;
+	border: 1px solid transparent;
+	background-color: red;
+}
+.index-channel .index1-lol{
+	width: 1460px;
+	height: 483.98px;
+	background-color: #f6f6f6;
+	margin: 0 auto;
+	/*border: 1px solid transparent;*/
+}
+.index1-lol .lol-title{
+	float: left;
+	position: relative;
+	width: 245px;
+	height: 226.91px;
+}
+.lol-title .lol-name{
+	width: 276px;
+	height: 96px;
+}
+.lol-name .name-a{
+	/*border: 1px solid transparent;*/
+	position: relative;
+	display: block;
+	width: 221.99px;
+	height: 100px;
+	/*background-color: #00f;*/
+}
+.lol-name .name-a .a-icon{
+	float: left;
+	margin-top: -5px;
+	margin-left: -5px;
+	/*margin: 7px;*/
+	display: inline-block;
+	width: 96px;
+	height: 96px;
+	line-height: 96px;
+	border: 1px solid transparent;
+	background: url(https://i.h2.pdim.gs/482b4dfc889480bca36b94f0497ce187.png) no-repeat;
+}
+.name-a .a-icon i{
+	display: inline-block;
+	width: 82px;
+	height: 82px;
+	border-radius: 100%;
+	margin-top: 8px;
+	margin-left: 7px;
+	background-size: cover;
+	background: url(https://i.h2.pdim.gs/441d51c6844cc8d72e08b3185cbf9453.jpeg);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.name-a .a-name{
+	position: absolute;
+	display: inline-block;
+	top: 8px;
+	left: 75px;
+	width: 50px;
+	height: 24px;
+    -webkit-transition: all ease-in 100ms;
+    transition: all ease-in 100ms;
+	/*background-color: red;*/
+}
+.name-a .a-name .num{
+    font-style: normal;
+	display: block;
+    position: relative;
+    top: 0;
+    width: 28px;
+    height: 16px;
+    line-height: 16px;
+	text-align: center;
+	color: #fff;
+    border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #1dd388;
+    overflow: hidden;
+    font-size: 12px;
+    -webkit-transition: all ease-in 250ms;
+    transition: all ease-in 250ms;
+    padding: 0 4px;
+}
+.lol-name:hover .name{
+	color: #1dd388;
+}
+.lol-name:hover .num{
+	width: 100px;
+}
+/*.name-a .a-name .txt{
+	display: inline-block;
+	border: 2px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    background-color: #1dd388;
+    position: absolute;
+    left: 30px;
+    top: 4px;
+    overflow: hidden;
+    font-size: 12px;
+    -webkit-transition: all ease-in 250ms;
+    transition: all ease-in 250ms;
+    width: 50px;
+    height: 24px;
+    line-height: 20px;
+    padding: 0 4px;
+    display: none;
+}*/
+/*.lol-name:hover .txt{
+	opacity: 1;
+}*/
+.name-a .name{
+	float: left;
+	font-size: 24px;
+	color: #333;
+    position: relative;
+    margin-left: 6px;
+    line-height: 90px;
+    width: 120px;
+    height: 40px;
+    font-weight: 700;
+}
+.lol-title .title-item{
+	margin-top: 5px;
+	width: 245px;
+	height: 111px;
+}
+.title-item .title-list{
+	float: left;
+	vertical-align: top;
+	margin-right: 6px;
+	margin-bottom: 8px;
+}
+.title-item .title-list a:hover{
+	color: #fff;
+	background-color: #1dd388;
+}
+.title-list .list-a{
+	padding: 2px 7px;
+    display: block;
+    font-size: 12px;
+    border: 1px solid #1dd388;
+    border-radius: 3px;
+    color: #1cd388;
+    background-color: #edfcf6;
+}
+.lol-title .title-more{
+	position: absolute;
+	top: 40px;
+	left: 215px;
+	width: 30px;
+	height: 184.92px;
+	/*background-color: red;*/
+}
+.lol-title .title-more a{
+	display: block;
+    position: relative;
+    /*padding-right: 10px;*/
+    font-size: 14px;
+    color: #a6a6a6;
+    overflow: hidden;
+}
+.index1-lol .con-item{
+	float: left;
+	margin-left: 10px;
+	width: 1184px;
+	height: 434px;
+	/*background-color: #999;*/
+}
+.con-item .con-list{
+	position: relative;
+	float: left;
+	width: 276px;
+	height: 210px;
+	margin: 0 20px 10px 0;
+	background-color: #f1f1f1;
+	border-bottom: 2px solid #f1f1f1;
+	/*background-color: #aaa;*/
+}
+/*.a-list{
+	position: relative;
+}*/
+.con-list .left{
+	width: 0px;
+	height: 2px;
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	transition: all .6s ease;
+}
+.con-list:hover .left{
+	width: 100%;
+	background-color: #1dd388;
+	transition: all .6s ease;
+}
+.con-list .img img{
+	width: 276px;
+	height: 155.14px;
+}
+.con-list .img{
+	position: relative;
+}
+.con-list .img .absolute{
+	position: absolute;
+	top: 37.5px;
+	left: 98px;
+	width: 80px;
+	height: 80px;
+	background-color: red;
+	transition: all .6s ease;
+	/*background: ;*/
+	opacity: 0;
+	transition: all .6s ease;
+}
+.con-list .img .absolute1{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 276px;
+	height: 155.14px;
+	background-color: rgba(0,0,0,.5);
+	opacity: 0;
+	transition: all .6s ease;
+}
+.con-list .img:hover .absolute1,
+.con-list .img:hover .absolute{
+	opacity: 1;
+	transition: all .6s ease;
+}
+.title-more .more:hover{
+	color: #1cd388;
+}
+.con-list .img:hover .absolute{
+	transform: scale(0.5);
+	transition: all .6s ease;
+}
+.a-list .text{
+	background-color: #fff;
+	width: 256px;
+	height: 41px;
+	padding: 7px 10px 6px 10px;
+	margin-top: -3px;
+}
+.text .p1{
+	width: 256px;
+	height: 19px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+   /* white-space: nowrap;*/
+    font-size: 14px;
+    color: #333;
+    line-height: 19px;
+    height: 19px;
+}
+.text .p2{
+	width: 256px;
+	height: 22px;
+}
+.text .p2 .span1{
+	display: inline-block;
+	float: left;
+	color: #1cd388;
+    font-size: 12px;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 18px;
+    line-height: 22px;
+    width: 150px;
+}
+.text .p2 .span2{
+	float: right;
+}
+.text .p2 i{
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background: url("img/icon-index.png");
+	background-repeat: no-repeat;
+	background-position: -50px -50px;
+}
+.text .p2 .span3{
+	font-size: 12px;
+	color: #aaa;
+}
+.con-item .con-list:hover .p1{
+	color: #1cd388;
+}
+#bg-color{
+	background-color: #fff;
+}
+.lol-name .div-img1{
+	margin-top: 130px;
+}
+.lol-name .div-img2{
+	margin-top: 10px;
+}
+.lol-name .div-img1 img,
+.lol-name .div-img2 img{
+	width: 245px;
+	height: 89px;
+}

@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>层拖拽</title>
+    <style media="screen">
+      *{
+        padding:0;
+        margin:0;
+      }
+      #drag_box{
+        width:500px;
+        height:500px;
+        background-color: #eee;
+        margin: 0 auto;
+      }
+      .drag_item{
+        width:100px;
+        height:100px;
+        background-color: #aaa;
+        position:relative;
+        float: left;
+        margin: 10px;
+        text-align: center;
+        line-height: 100px;
+        z-index: 0;
+        cursor: move;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="drag_box">
+
+    </div>
+
+    <script type="text/javascript">
+      var drag_boxDom = document.getElementById("drag_box");
+      var drag_item;
+      for(var i=0;i<16;i++){
+        drag_item = document.createElement("div");
+        drag_item.className = "drag_item";
+        drag_boxDom.appendChild(drag_item);
+        drag_item.style.backgroundColor = randomColor();
+
+        //  添加每个元素的位置属性
+        setPositionDefault(drag_item);
+      };
+
+      function randomColor(){
+        var r = Math.floor(Math.random()*256);
+        var g = Math.floor(Math.random()*256);
+        var b = Math.floor(Math.random()*256);
+        return "rgb("+r+","+g+","+b+")";
+      };
+
+      var drag_items = drag_boxDom.getElementsByClassName("drag_item");
+      var drag_item_len = drag_items.length;
+      var drag_itemDoms = Array.prototype.slice.call(drag_items);
+      function cancelDefaultBubble(e){
+        e.preventDefault();
+        e.stopPropagation();
+      };
+      //  为每个元素添加一个初始位置的方法
+      function setPositionDefault(e){
+        e.cleft = e.offsetLeft;
+        e.ctop = e.offsetTop;
+      };
+      //  将每个元素的定位方式改变
+      function changePositionType(e){
+        e.style.position = "absolute";
+        e.style.left = e.cleft+"px";
+        e.style.top = e.ctop+"px";
+      };
+
+      var positionEnum = {
+        STARTX:0,
+        STARTY:0,
+        STARTLEFT:0,
+        STARTTOP:0,
+        X:0,
+        Y:0,
+        ENDX:0,
+        ENDY:0,
+        ENDLEFT:0,
+        ENDTOP:0,
+        ZINDEX:0,
+        MARGIN:0
+      };
+      function handleMouseDown(e){
+        cancelDefaultBubble(e);
+        positionEnum.STARTX = e.clientX;
+        positionEnum.STARTY = e.clientY;
+        positionEnum.STARTLEFT = this.offsetLeft;
+        positionEnum.STARTTOP = this.offsetTop;
+        this.style.zIndex = (++positionEnum.ZINDEX);
+        this.style.transform = "scale(0.8)";
+        this.addEventListener("mousemove",handleMouseMove,false);
+      };
+      function handleMouseMove(e){
+        cancelDefaultBubble(e);
+        positionEnum.X = e.clientX;
+        positionEnum.Y = e.clientY;
+        positionEnum.ENDX = positionEnum.X - positionEnum.STARTX;
+        positionEnum.ENDY = positionEnum.Y - positionEnum.STARTY;
+        positionEnum.ENDLEFT = positionEnum.ENDX  + positionEnum.STARTLEFT;
+        positionEnum.ENDTOP = positionEnum.ENDY  + positionEnum.STARTTOP;
+        if(positionEnum.X<=0||positionEnum.X>=500||positionEnum.Y<=0||positionEnum.Y>=500){
+          this.removeEventListener("mousemove",handleMouseMove,false);
+        };
+        this.style.left = positionEnum.ENDLEFT-10+"px";
+        this.style.top = positionEnum.ENDTOP-10+"px";
+      };
+      function handleMouseUp(e){
+        cancelDefaultBubble(e);
+        console.log("事件移除");
+        var differenceX,differenceY;
+        for(var i=0;i<drag_itemDoms.length;i++){
+          differenceX = positionEnum.ENDLEFT-drag_items[i].cleft;
+          differenceY = positionEnum.ENDTOP-drag_items[i].ctop;
+          if((differenceX>(-1*50))&&(differenceX<50)&&(differenceY>(-1*50))&&(differenceY<50)&&(i!=this.index)){
+            this.cleft = drag_items[i].cleft;
+            this.ctop = drag_items[i].ctop;
+            this.style.left = drag_items[i].cleft+"px";
+            this.style.top = drag_items[i].ctop+"px";
+            drag_items[i].cleft = positionEnum.STARTLEFT -10;
+            drag_items[i].ctop = positionEnum.STARTTOP -10;
+            drag_items[i].style.left = drag_items[i].cleft+"px";
+            drag_items[i].style.top = drag_items[i].ctop+"px";
+          }else{
+            this.style.left = drag_items[this.index].cleft+"px";
+            this.style.top = drag_items[this.index].ctop+"px";
+          }
+        };
+        this.style.transform = "scale(1)";
+        this.removeEventListener("mousemove",handleMouseMove,false);
+      };
+
+
+
+      drag_itemDoms.forEach(function(e,i){
+        changePositionType(e);
+        e.index = i;
+        e.addEventListener("mousedown",handleMouseDown,false);
+        e.addEventListener("mouseup",handleMouseUp,false);
+      });
+    </script>
+  </body>
+</html>

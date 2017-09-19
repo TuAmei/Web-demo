@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>简谐运动效果实例</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div id="box">
+		<div id="ball">
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.addEventListener('DOMContentLoaded',function(){
+			var boxDom = document.getElementById('box');
+			var ballDom = document.getElementById('ball');
+			var x = 5, y = (Math.PI)/18 ,_x = 0 ,_y = 0;
+			var keepDom , a , s;
+			//运动轨迹
+			//随机颜色函数
+			function randomColor (){
+				var r = Math.round(Math.random()*255),
+				g = Math.round(Math.random()*255),
+				b = Math.round(Math.random()*255);
+				return 'rgb('+r+','+g+','+b+')';
+			}
+			function test (){
+				//y值倍数
+				a = (boxDom.offsetHeight-ballDom.offsetHeight)/2;
+				//位移
+				ballDom.style.left = _x + 'px';
+				ballDom.style.top = (a - a*Math.sin(_y)) + 'px';
+				//节点复制与插入
+				keepDom = ballDom.cloneNode(true);
+				keepDom.style.backgroundColor = randomColor();
+				boxDom.insertBefore(keepDom,ballDom);
+				//球数限制
+				if(boxDom.children.length > 100){
+					boxDom.removeChild(boxDom.children[0]);
+				}
+				//执行回返判断
+				s = boxDom.offsetWidth - 2;
+				if(_x === 0){
+					x = 5;
+				} else if(_x + ballDom.offsetWidth >= s){
+					x = -5;
+				}
+				_x += x;
+				_y += y;
+			}
+			setInterval(test,80);
+		},false);
+	</script>
+</body>
+</html>

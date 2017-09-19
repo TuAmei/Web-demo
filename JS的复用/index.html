@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		.slider{
+			position: relative;
+			width: 500px;
+			margin: 0 auto;
+		}
+		.header{
+			width: 500px;
+			height: 30px;
+			background-color: #eee;
+		}
+		.header ul{
+			width: 500px;
+		}
+		.header .unit{
+			cursor: pointer;
+			float: left;
+			width: 100px;
+			height: 30px;
+			background-color: blue;
+		}
+		.content{
+			position: relative;
+			width: 500px;
+			height: 470px;
+		}
+		.content .content-unit{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 500px;
+			height: 470px;
+			font-size: 36px;
+			text-align: center;
+			/*background-color: red;*/
+			display: none;
+		}
+		.content .content-unit:nth-child(1){
+			display: block;
+		}
+		.ear{
+			position: absolute;
+			top: 50%;
+			width: 30px;
+			height: 100px;
+			line-height: 100px;
+			text-align: center;
+			margin-top: -50px;
+			background-color: pink
+		}
+		.left-ear{
+			left: -60px;
+		}
+		.right-ear{
+			right: -60px;
+		}
+	</style>
+</head>
+<body>
+	
+	<div class="slider"  data-index="0">
+		<div class="header">
+			<ul>
+				<li class="unit" data-index='0'>11</li>
+				<li class="unit" data-index='1'>22</li>
+				<li class="unit" data-index='2'>33</li>
+				<li class="unit" data-index='3'>44</li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="content-unit">111111</div>
+			<div class="content-unit">22222</div>
+			<div class="content-unit">33333</div>
+			<div class="content-unit">44444</div>
+			<a href="javascript:void(0)" class="left-ear ear">左</a>
+			<a href="javascript:void(0)" class="right-ear ear">右</a>
+		</div>
+	</div>
+
+	<div class="slider" data-index="0">
+		<div class="header">
+			<ul>
+				<li class="unit" data-index='0'>11</li>
+				<li class="unit" data-index='1'>22</li>
+				<li class="unit" data-index='2'>33</li>
+				<li class="unit" data-index='3'>44</li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="content-unit">111111</div>
+			<div class="content-unit">22222</div>
+			<div class="content-unit">33333</div>
+			<div class="content-unit">44444</div>
+			<a href="javascript:void(0)" class="left-ear ear">左</a>
+			<a href="javascript:void(0)" class="right-ear ear">右</a>
+		</div>
+	</div>
+
+
+	<div class="slider"  data-index="0">
+		<div class="header">
+			<ul>
+				<li class="unit" data-index='0'>11</li>
+				<li class="unit" data-index='1'>22</li>
+				<li class="unit" data-index='2'>33</li>
+				<li class="unit" data-index='3'>44</li>
+			</ul>
+		</div>
+		<div class="content">
+			<div class="content-unit">111111</div>
+			<div class="content-unit">22222</div>
+			<div class="content-unit">33333</div>
+			<div class="content-unit">44444</div>
+			<a href="javascript:void(0)" class="left-ear ear">左</a>
+			<a href="javascript:void(0)" class="right-ear ear">右</a>
+		</div>
+	</div>
+
+
+	<script>
+		
+		function domsToArray (doms) {
+			return Array.prototype.slice.call(doms);
+		};
+
+		var unitDoms = domsToArray(document.getElementsByClassName('unit'));
+		var rightEarDoms = domsToArray(document.getElementsByClassName('right-ear'));
+
+		var unitDoms_index = 0;
+
+		unitDoms.forEach(function (unite,uniti) {
+			;(function (unite,uniti) {
+				unite.addEventListener('click',function (ev) {
+					var parentEl = this;
+					while (true) {
+						parentEl = parentEl.parentElement;
+						if (parentEl.className.indexOf('slider') !== -1) {
+							break;
+						};
+					};
+					var contentUnitDoms = domsToArray(parentEl.getElementsByClassName('content-unit'));
+					var leftEarDom = parentEl.getElementsByClassName('left-ear')[0];
+					var rightEarDom = parentEl.getElementsByClassName('right-ear')[0];
+					contentUnitDoms.forEach(function (e) {
+						e.style.display = 'none';
+					});
+					var _index = this.getAttribute('data-index');
+					parentEl.setAttribute('data-index',_index);
+					unitDoms_index = _index;
+					console.log(_index);
+					contentUnitDoms[_index].style.display = 'block';
+
+				}, false);
+			})(unite,uniti);
+		});
+
+		rightEarDoms.forEach(function (unite,uniti) {
+			;(function (unite,uniti) {
+				unite.addEventListener('click',function (ev) {
+					var parentEl = this;
+					while (true) {
+						parentEl = parentEl.parentElement;
+						if (parentEl.className.indexOf('slider') !== -1) {
+							break;
+						};
+					};
+					var contentUnitDoms = domsToArray(parentEl.getElementsByClassName('content-unit'));
+					var _index = parentEl.getAttribute('data-index');
+					contentUnitDoms[_index].style.left = '-200px';
+					parentEl.setAttribute('data-index',_index + 1);
+
+				}, false);
+			})(unite,uniti);
+		});
+	</script>
+</body>
+</html>

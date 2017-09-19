@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滚动加载</title>
+	<style type="text/css">
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		#box{
+			width: 200px;
+			background-color: #eee;
+			margin: 0 auto;
+		}
+		.cnbox{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			margin-top: 10px;
+		}
+		.cnbox:nth-child(1){
+			margin-top: 100px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+		<div class="cnbox"></div>
+	</div>
+	<script type="text/javascript">
+		var boxDom = document.getElementById('box');
+		var cnboxDom = document.getElementsByClassName('cnbox')[0];
+		// boxDom.addEventListener('click',function (ev) {
+		// 	// console.log(ev.pageX,ev.pageY);
+		// 	console.log(ev.clientY);
+		// 	console.log(document.body.scrollTop);
+		// 	alert(ev.clientY + (document.body.scrollTop || document.documentElement.scrollTop));
+		// }, false);
+
+        function getRandomColorRGB (){
+        	var r = Math.floor(Math.random()*256);
+        	var g = Math.floor(Math.random()*256);
+        	var b = Math.floor(Math.random()*256);
+        	return "rgb("+r+","+g+","+b+")";
+        };
+		document.addEventListener('scroll',function wheel(ev) {
+			var _this = this;
+			//  boxDom的高度
+			//  窗口高度
+			var boxToTop = boxDom.offsetTop + boxDom.offsetHeight;
+			// console.log(boxDom.offsetTop + boxDom.offsetHeight,window.innerHeight);
+
+			//  滚动条卷起高度
+			var scrollToTop = document.body.scrollTop  + window.innerHeight;
+			// console.log(document.body.scrollTop);
+			console.log(boxToTop,scrollToTop);
+			if (boxToTop < (scrollToTop + 50)) {
+				_this.removeEventListener('scroll',wheel,false);
+				console.log('加载更多...');
+				var pDom = document.createElement('p');
+				pDom.textContent = '加载更多...';
+				boxDom.appendChild(pDom);
+				
+				//2秒的延迟加载
+				setTimeout(function () {
+					var newDom = cnboxDom.cloneNode(true);
+					newDom.style.backgroundColor = getRandomColorRGB();
+					boxDom.appendChild(newDom);
+					_this.addEventListener('scroll',wheel,false);
+				}, 2000);
+			}
+
+		}, false);
+
+	</script>
+</body>
+</html>

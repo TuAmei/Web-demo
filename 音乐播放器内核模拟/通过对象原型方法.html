@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>音乐内核模拟</title>
+</head>
+<body>
+	
+	<!-- <audio src="music/1.mp3" controls id="audio">您的浏览器不支持audio</audio> -->
+	
+	<div class="box">
+		<button id="play">播放</button>
+		<button id="pause">暂停</button>
+		<button id="novol">静音</button>
+	</div>
+	<script type="text/javascript">
+		// //构造器---------函数
+		// function Music () {
+		// 	//属性
+		// 	//以下是音乐播放的四个基本属性
+		// 	this.volume = 1;
+		// 	this.percentage = 1;
+		// 	this.isPlay = false;
+		// 	this.isNovol = false;
+		// 	this.musicDom;
+
+		// 	//	音乐播放器初始化
+		// 	this.init = function(){
+		// 		//创建一个音频DOM对象
+		// 		this.musicDom = document.createElement('audio');
+		// 		this.musicDom.src = 'music/Lady Antebellum - Need You Now.mp3';
+		// 		//	获取操作音乐的相关按钮
+		// 		this.play();
+		// 		this.pause();
+		// 		this.setVolume();
+		// 	};
+		// 	//方法
+		// 	//	音乐播放器的播放功能(功能就是函数)
+		// 	this.play = function(){
+		// 		var _this = this;
+		// 		var playDom = document.getElementById('play');
+		// 		playDom.addEventListener('click',function(){
+		// 			_this.musicDom.play();
+		// 		},false);
+		// 	}
+		// 	//	音乐播放器的暂停功能
+		// 	this.pause = function(){
+		// 		var _this = this;
+		// 		var pauseDom = document.getElementById('pause');
+		// 		pauseDom.addEventListener('click',function(){
+		// 			_this.musicDom.pause();
+		// 		},false);
+		// 	};
+		// 	//	音乐播放器的设置音量功能
+		// 	this.setVolume = function(){
+		// 		var _this = this;
+		// 		var novolDom = document.getElementById('novol');
+		// 		novolDom.addEventListener('clicl',function(){
+		// 			_this.musicDom.pause();
+		// 		},false);
+		// 	}
+		// };
+
+
+		//以上代码中，播放、暂停、音量设置三个方法属于所用音乐播放器公用的方法（功能），所以，可以将这些公用的方法，放置在Music原型上。所以，以上代码可以等同于以下代码
+		//构造器---------函数
+		function Music () {
+			//属性
+			//以下是音乐播放的四个基本属性
+			this.volume = 1;
+			this.percentage = 1;
+			this.isPlay = false;
+			this.isNovol = false;
+			this.musicDom;
+		};
+			//	音乐播放器初始化,将音乐播放器初始化方法放置在Music原型上
+			Music.prototype.init = function(){
+				//创建一个音频DOM对象
+				this.musicDom = document.createElement('audio');
+				this.musicDom.src = 'music/Lady Antebellum - Need You Now.mp3';
+				//	获取操作音乐的相关按钮
+				this.play();
+				this.pause();
+				this.setVolume();
+			};
+			
+			//	音乐播放器的播放功能(功能就是函数)方法放置在Music原型上
+			Music.prototype.play = function(){
+				var _this = this;
+				var playDom = document.getElementById('play');
+				playDom.addEventListener('click',function(){
+					_this.musicDom.play();
+				},false);
+			};
+
+			//	音乐播放器的暂停功能方法放置在Music原型上
+			Music.prototype.pause = function(){
+				var _this = this;
+				var pauseDom = document.getElementById('pause');
+				pauseDom.addEventListener('click',function(){
+					_this.musicDom.pause();
+				},false);
+			};
+
+			//	音乐播放器的设置音量功能方法放置在Music原型上
+			Music.prototype.setVolume = function(){
+				var _this = this;
+				var novolDom = document.getElementById('novol');
+				novolDom.addEventListener('clicl',function(){
+					_this.musicDom.pause();
+				},false);
+			};
+
+
+		var music = new Music();
+		music.init();
+	</script>
+</body>
+</html>

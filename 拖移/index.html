@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖动物体移动</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#box{
+			cursor: move;
+			position: absolute;
+			top: 100px;
+			left: 100px;
+			width: 200px;
+			height: 200px;
+			background: linear-gradient(to bottom, #ff7600 0%,#0076ff 100%);
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+	</div>
+	<script type="text/javascript">
+	window.addEventListener('DOMContentLoaded',function(ev){
+		var boxDom = document.getElementById('box');
+		var moveHandle;
+
+
+		//当鼠标按下时触发事件
+		boxDom.addEventListener('mousedown',function(ev){
+			console.log(ev.clientX,ev.clientY);
+			console.log('开始移动了');
+			console.log(ev.offsetX,ev.offsetY);
+			var x = ev.clientX;
+			var y = ev.clientY;
+			var moveToDivX = ev.offsetX;
+			var moveToDivY = ev.offsetY;
+			//有以上关系，得到最终盒子位置
+			var left = x - moveToDivX;
+			var top = y - moveToDivY;
+			//物体的移动监听函数
+			moveHandle = function(ev){
+				var _this = boxDom;
+				x = ev.clientX;
+				y = ev.clientY;
+				left = x - moveToDivX;
+				top = y - moveToDivY;
+				console.log(1);
+				_this.style.left = left + 'px';
+				_this.style.top = top + 'px';
+			};
+			document.addEventListener('mousemove',moveHandle, false);
+		},false);
+		//当鼠标移动时，触发事件
+		boxDom.addEventListener('mousemove',function(ev){
+
+		},false);
+		//当鼠标抬起时，触发事件
+		boxDom.addEventListener('mouseup',function(ev){
+			document.removeEventListener('mousemove',moveHandle,false);
+		},false);
+
+		//	获取容器宽高
+	//	这些做法都是赋值的，不能取值，所以这两个方法是错误的
+	console.log(boxDom.style.width);	
+	console.log(boxDom.style.height);
+	//	1.通过计算属性获取
+	console.log(window.getComputedStyle(boxDom).width);
+	//	2.styleSheets
+	console.log(document.styleSheets);
+	//	3.offsetWidth,offsetHeight
+	console.log(boxDom.offsetWidth,boxDom.offsetHeight);
+	//	4.clientWidth  clientHeight
+	console.log(boxDom.clientWidth,boxDom.clientHeight);
+	//	5.getBoundingClientRect
+	console.log(boxDom.getBoundingClientRect());  // rectangle
+	console.log(boxDom.getClientRects());
+
+
+	//	浏览器环境, 打印一个值，就是调用了这个值多对应对象的valueOf()方法；
+	console.log([1,2,3]);  // 调用了该数组的valueOf方法
+	//	在不同类型量之间运算时， 调用toString()
+
+	},false);
+		
+	</script>
+</body>
+</html>

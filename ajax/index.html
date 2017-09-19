@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax(async javascript and xml) - 异步处理</title>
+</head>
+<body>
+	<form action="" method="DET">
+		<input type="submit" name="" value="提交">
+	</form>
+	<div id="box"></div>
+	<script type="text/javascript">
+		//异步的概念：（例子：我现在给你下达一个命令，你可以在墙角完成之后，在未来的某个时间点给我汇报情况）；
+
+		var boxDom = document.getElementById('box');
+
+		//例举同步与异步情景
+		//检查同学的作业
+		//同步方式:检查第一个同学的作业，发现他没有做完，我就盯着他，直到他做完，我再检查第二个同学
+		//异步方式：检查第一个同学，发现他没有做完，我就说，你先做，做完再拿过来给我检查，，而我这个时候，我就跳过第一个同学，去检查第二个同学的作业。
+
+		//异步，也是有一个对象来支持的，这个对象的名字叫：XMLHttpRequest;
+
+		//第一步，创建异步对象
+		var xhr = new XMLHttpRequest();
+		//第二步，打开这个对象
+		//参数说明：请求方法，请求路径
+		xhr.open('GET','https://cnodejs.org/api/v1/topics');
+		// xhr.set
+		//第三步，监听这个对象的状态
+		xhr.send();
+		xhr.onreadystatechange = function(){
+			if (xhr.readyState === 4 && xhr.status === 200) {
+				console.log('请求成功');
+				//不能new的对象Math  JSON arguments
+				//获取返回值
+				var res = xhr.response;
+				console.log(xhr.responseText);
+				//将返回值json类型字符串转成对象 parse stringify
+				var resdata = JSON.parse(res);
+
+				console.log(typeof xhr.response);
+				// console.log(JSON.parse(xhr.response));
+				if(resdata.success){
+					var data = resdata.data;
+					console.log(Object.prototype.toString.call(data));
+					var contentText = document.crreateTextNode(data[0].content);
+					// boxDom.appendchild(contentText);
+					boxDom.innerHTML = data[0].content;
+				};
+			};
+			// if(xhr.readyState === 4){
+			// 	console.log('请求对象创建成功'):
+			// 	if(xhr.status === 200){
+			// 		console.log('请求成功');
+			// 	}
+			// }
+		};
+		//第四步，发送异步请求
+		// xhr.send();
+	</script>
+</body>
+</html>

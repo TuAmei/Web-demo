@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<audio src="music/1.mp3" controls id="audio">您的浏览器不支持audio</audio>
+
+
+	<!-- <audio src="music/1.mp3" controls id="audio">您的浏览器不支持audio</audio> -->
+	
+	<div>
+		<button id="play">播放</button>
+		<button id="pause">暂停</button>
+		<button id="novol">静音</button>
+	</div>
+
+	<script>
+		;(function (window) {
+			var audio = document.getElementById('audio');
+
+			var playDom = document.getElementById('play');
+			var pauseDom = document.getElementById('pause');
+			var novolDom = document.getElementById('novol');
+
+
+			playDom.addEventListener('click',function (ev) {
+				// alert('播放...');
+				audio.play();
+			}, false);
+
+			pauseDom.addEventListener('click',function (ev) {
+				// alert('暂停...');
+				audio.pause();
+			}, false);
+
+			var isNoVol = false;
+			novolDom.addEventListener('click',function (ev) {
+				// alert('静音...');
+				if (isNoVol) {
+					audio.volume = 1;
+					isNoVol = false;
+					this.innerHTML = '静音';
+				} else {
+					audio.volume = 0;
+					isNoVol = true;
+					this.innerHTML = '恢复声音';
+				}
+			}, false);
+		})(window);
+
+
+		
+
+
+
+	</script>
+</body>
+</html>

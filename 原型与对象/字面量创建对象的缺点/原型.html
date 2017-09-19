@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型</title>
+</head>
+<body>
+	
+	<script type="text/javascript">
+		//Object
+
+		//原型链：由于__proto__是任何对象都有的属性，而JS里万物皆对象，
+		//所以会形成一条__proto__链起来的链条，递归访问__proto__必须最终到头，并且值是null
+		//当js引擎查找对象的属性时，先查找对象本身是否存在该属性，如果不存在，会在原型链上查找，但不会查找自身的prototype
+
+		var arr = new Array();
+		console.log(arr);
+
+		// Array.prototype
+
+		function Person () {
+			this.name = 'wakler'
+		};
+
+		var abc = new Person();
+
+		//实例化出来的对象有一个__proto__，指向的是构造器原型
+		console.log(abc.__proto__);
+		console.log(abc.__proto__ === Person.prototype);
+
+
+		//构造器的__proto__，指向Function的原型
+		console.log(Person.__proto__ === Function.prototype);
+
+		//类的原型的__proto__
+		console.log(Person.prototype.__proto__ === Object.prototype);
+	
+
+
+		//var a = new Person(); 在创建对象的时候做了什么
+		// var a = new Person();创建的过程如下
+		var a = new Object();
+		a.__proto__ = Person.prototype;
+		Person.call(a);
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+.box{
+	position: relative;
+	width: 1200px;
+	height: 400px;
+	/*background-color: #999;*/
+	margin: 100px auto 0;
+}
+.boxSun{
+	position: absolute;
+	top: 182px;
+	left: 0;
+	width:20px;
+	height: 20px;
+	border-radius: 100%;
+	/*background-color: #ff7676;*/
+	/*transition: all 12s ease;*/
+}

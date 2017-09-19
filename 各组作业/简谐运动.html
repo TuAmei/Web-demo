@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.jiaoshigun{
+				position: relative;
+				width: 1290px;
+				height: 430px;
+				border: 1px solid red;
+			}
+			.gaoshi{
+				border-width: 0;
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				background-color: #000;
+			}
+			
+		</style>
+		<script type="text/javascript">
+			window.addEventListener('DOMContentLoaded',function(){
+				var jiaoshigunDom = document.getElementsByClassName('jiaoshigun')[0];
+				var x=5,y=(Math.PI)/36,_x=0,_y=0;
+				var gaoshiDom = document.getElementsByClassName('gaoshi')[0];
+				var kopDom; 
+				//运动轨迹
+				function randomColor(){
+					var r = Math.round(Math.random()*255);
+					var g = Math.round(Math.random()*255);
+					var b = Math.round(Math.random()*255);
+					var a = Math.random().toFixed(2);
+					return 'rgba('+r+','+g+','+b+','+a+')';
+				}
+				function test(){
+					gaoshiDom.style.left = _x+'px';
+					gaoshiDom.style.top = (200-200*Math.sin(_y))+'px';
+					kopDom = gaoshiDom.cloneNode(true);
+				    kopDom.style.backgroundColor = randomColor();
+				    jiaoshigunDom.insertBefore(kopDom,gaoshiDom);
+				    if(jiaoshigunDom.children.length>80){
+				    	jiaoshigunDom.removeChild(jiaoshigunDom.children[0]);
+				    }
+				    
+					if(_x===0){
+						x=5;
+					}else if(_x+30===1290){
+						x=-5;
+					}
+					_x+=x;
+					_y+=y;
+				}
+				setInterval(test,50);
+			},false);
+		</script>
+	</head>
+	<body>
+		<div class="jiaoshigun">
+		<div class="gaoshi">
+		</div>
+		</div>
+	</body>
+</html>
